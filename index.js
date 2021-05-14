@@ -17,8 +17,6 @@ class CountdownTimer {
         `${this.selector} span[data-value="secs"]`
       ),
     };
-
-    this.run();
   }
   changeDate() {
     const time = this.targetDate.getTime() - new Date().getTime();
@@ -29,13 +27,13 @@ class CountdownTimer {
     const hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const mins = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
     const secs = Math.floor((time % (1000 * 60)) / 1000);
-    this.changeElems(days, hours, mins, secs);
+    this.renderElems(days, hours, mins, secs);
   }
-  changeElems(days, hours, mins, secs) {
-    this.refs.daysElem.innerHTML = days;
-    this.refs.hoursElem.innerHTML = hours;
-    this.refs.minsElem.innerHTML = mins;
-    this.refs.secsElem.innerHTML = secs;
+  renderElems(days, hours, mins, secs) {
+    this.refs.daysElem.textContent = days;
+    this.refs.hoursElem.textContent = hours;
+    this.refs.minsElem.textContent = mins;
+    this.refs.secsElem.textContent = secs;
   }
   run() {
     this.changeDate();
@@ -44,11 +42,12 @@ class CountdownTimer {
     }, 1000);
   }
   viewError() {
-    document.querySelector(this.selector).innerHTML = "ТАКОВ ПУТЬ";
+    document.querySelector(this.selector).textContant = "ТАКОВ ПУТЬ";
   }
 }
-
-new CountdownTimer({
+const runTimer = new CountdownTimer({
   selector: "#timer-1",
   targetDate: new Date("June 13, 2021"),
 });
+
+runTimer.run();
