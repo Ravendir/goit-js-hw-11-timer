@@ -42,7 +42,7 @@ class CountdownTimer {
     }, 1000);
   }
   viewError() {
-    document.querySelector(this.selector).textContant = "ТАКОВ ПУТЬ";
+    document.querySelector(this.selector).textContent = "ТАКОВ ПУТЬ";
   }
 }
 const runTimer = new CountdownTimer({

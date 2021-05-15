@@ -13,6 +13,14 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <audio
+      src="./mus/spoiler.mp3"
+      id="music"
+      type="mp3"
+      autoplay
+      loop
+      codecs="vorbis"
+    ></audio>
     <div class="timer" id="timer-1">
       <div class="field">
         <span class="value" data-value="days"> 11 </span>
@@ -34,6 +42,9 @@
         <span class="label secs">Seconds</span>
       </div>
     </div>
+    <button class="stopMus" onclick="document.getElementById('music').pause()">
+      Stop Music
+    </button>
     <script src="./index.js" type="module"></script>
   </body>
 </html>
